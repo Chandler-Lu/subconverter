@@ -1296,7 +1296,8 @@ std::string proxyToSingle(std::vector<Proxy> &nodes, int types, extra_settings &
                                ? "00000000-0000-0000-0000-000000000000"
                                : id) + "@" + hostname + ":" + port+"?";
                 if (!tls.empty()) {
-                    proxyStr += "&security=" + tls;
+                    // proxyStr += "&security=" + tls;
+                    proxyStr += "&security=" + "reality";
                 }
                 if (!flow.empty()) {
                     proxyStr += "&flow=" + flow;

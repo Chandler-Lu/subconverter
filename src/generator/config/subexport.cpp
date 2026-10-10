@@ -1035,6 +1035,15 @@ std::string proxyToSurge(std::vector<Proxy> &nodes, const std::string &base_conf
                 switch (hash_(transproto)) {
                     case "tcp"_hash:
                         break;
+                    case "h2"_hash:
+                        // Opt in only for endpoints verified to accept plain VMess over TLS.
+                        if (!ext.surge_h2_to_tcp || surge_ver < 5 || !tlssecure)
+                            continue;
+                        if (!sni.empty())
+                            proxy += ", sni=" + sni;
+                        writeLog(0, "Exporting VMess H2 as TCP/TLS for Surge; H2 host and path are omitted.",
+                                 LOG_LEVEL_WARNING);
+                        break;
                     case "ws"_hash:
                         if (host.empty())
                             proxy += ", ws=true, ws-path=" + path + ", sni=" + hostname;

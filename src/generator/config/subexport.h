@@ -30,6 +30,7 @@ struct extra_settings
     bool clash_new_field_name = false;
     bool clash_script = false;
     std::string surge_ssr_path;
+    bool surge_h2_to_tcp = false;
     std::string managed_config_prefix;
     std::string quanx_dev_id;
     tribool udp = tribool();

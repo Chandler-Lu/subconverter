@@ -124,12 +124,11 @@ Finally subscribe this link in Clash and you are done!
 
 Please refer to [中文文档](https://github.com/asdlokj1qpi23/subconverter/blob/master/README-cn.md#%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95).
 
-For a VMess node marked `network: h2` that has been verified to work as plain
-VMess over TLS in Surge, add `&surge_h2_to_tcp=true` to a conversion request with
-`target=surge&ver=5`. This opt-in fallback requires `tls: true`, preserves an
-explicit `servername` as `sni`, and omits H2 host/path options. It does not add H2
-support to Surge and will not make an H2-only server compatible. The default
-behavior and other transports are unchanged.
+With `target=surge&ver=5`, VMess nodes using `network: h2` and `tls: true` are
+exported as plain VMess over TLS by default. No extra parameter is required.
+The exporter preserves an explicit `servername` as `sni` and omits H2 host/path
+options. The server must accept plain VMess over TLS; this does not add H2
+transport support to Surge. Other transports are unchanged.
 
 ## Auto Upload
 

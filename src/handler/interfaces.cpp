@@ -452,7 +452,6 @@ std::string subconverter(RESPONSE_CALLBACK_ARGS) {
 
     ext.nodelist = argGenNodeList;
     ext.surge_ssr_path = global.surgeSSRPath;
-    ext.surge_h2_to_tcp = tribool(getUrlArg(argument, "surge_h2_to_tcp")).get();
     ext.quanx_dev_id = !argDeviceID.empty() ? argDeviceID : global.quanXDevID;
     ext.enable_rule_generator = global.enableRuleGen;
     ext.overwrite_original_rules = global.overwriteOriginalRules;
